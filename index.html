@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<meta name="description" content="陈相豫 · AI产品经理作品集 · 香港大学社会科学硕士">
+<title>陈相豫 · AI产品经理 · 作品集</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:#1d1d1f;line-height:1.47059;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-0.022em}
+html{scroll-behavior:smooth}
+.container{max-width:880px;width:100%;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(16px,4vw,32px) clamp(36px,5vw,64px);overflow-x:hidden}
+@media(min-width:821px) and (max-width:1120px){.container{padding-left:clamp(32px,5vw,48px);padding-right:clamp(32px,5vw,48px)}}
+
+.toc-float{position:fixed;right:clamp(6px,1.2vw,12px);top:50%;transform:translateY(-50%);background:rgba(255,255,255,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:36px;box-shadow:0 4px 12px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.02);border:0.5px solid rgba(203,213,225,.5);padding:8px 5px;z-index:1000;transition:all .25s ease}
+.toc-float:hover{background:rgba(255,255,255,.96);box-shadow:0 8px 18px rgba(0,0,0,.06)}
+.toc-header{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-bottom:6px;padding-bottom:4px;border-bottom:0.5px solid rgba(148,163,184,.3)}
+.toc-title{font-size:clamp(.48rem,.7vw,.58rem);font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:#4b6589;white-space:nowrap}
+.toc-toggle{background:transparent;border:none;width:28px;height:28px;border-radius:30px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#3a5670;cursor:pointer;opacity:.7;min-width:30px;min-height:30px}
+.toc-toggle:hover{background:rgba(100,130,160,.12);opacity:1}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:3px}
+.toc-link{display:flex;align-items:center;justify-content:center;gap:3px;text-decoration:none;font-size:clamp(.5rem,.7vw,.58rem);font-weight:500;color:#2c3e50;padding:3px 6px;border-radius:30px;transition:all .15s;white-space:nowrap;min-height:30px}
+.toc-link .toc-icon{font-size:.78rem;opacity:.75}
+.toc-link:hover{background:#ecf3fa;color:#0b1e2e}
+.toc-link.active{background:#e0ecf7;color:#0c3a56;font-weight:600}
+.toc-float.collapsed .toc-title,.toc-float.collapsed .toc-list{display:none}
+.toc-float.collapsed .toc-header{border-bottom:none;margin-bottom:0;padding-bottom:0;justify-content:center}
+.toc-float.collapsed .toc-toggle{width:30px;height:30px;font-size:1.2rem;background:rgba(220,235,250,.4);opacity:.9;min-width:34px;min-height:34px}
+@media(max-width:1000px){.toc-float{right:6px;padding:6px 3px;border-radius:28px}.toc-link{padding:3px 5px;font-size:.5rem;gap:2px;min-height:28px}.toc-link .toc-icon{font-size:.65rem}.toc-title{font-size:.45rem}}
+@media(max-width:820px){.toc-float{display:none}}
+
+.mobile-nav{display:none;position:fixed;bottom:max(10px,env(safe-area-inset-bottom,0));right:max(10px,env(safe-area-inset-right,0));background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #e8ecf2;border-radius:14px;z-index:999;padding:6px;overflow:hidden}
+.mobile-nav-inner{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.mobile-nav a{text-decoration:none;font-size:.64rem;font-weight:500;color:#3a5670;background:#f5f7fa;padding:7px 10px;border-radius:12px;white-space:nowrap;display:flex;align-items:center;gap:4px;border:.5px solid #e4eaf2;min-height:36px;transition:all .2s}
+.mobile-nav a:active{background:#e0ecf7;color:#0c3a56;transform:scale(.96)}
+
+.hero{text-align:center;margin-bottom:clamp(20px,3vw,28px)}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:600;letter-spacing:-.03em;margin-bottom:8px}
+.hero .role-badge{display:inline-block;font-size:clamp(.72rem,.9vw,.82rem);font-weight:600;background:rgba(0,113,227,.1);color:#0071e3;padding:4px 14px;border-radius:999px;margin-bottom:12px}
+.hero .contact{font-size:clamp(.78rem,1vw,.85rem);color:#6e6e73;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(8px,2vw,18px)}
+.hero .edu{font-size:clamp(.72rem,.85vw,.78rem);color:#86868b;margin-top:6px}
+.hero .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:12px}
+.hero .tag{background:#f2f2f7;color:#1d1d1f;padding:4px 12px;border-radius:999px;font-size:clamp(.68rem,.8vw,.74rem);font-weight:500;border:.5px solid rgba(0,0,0,.06)}
+.hero .tag.accent{background:rgba(0,113,227,.1);color:#0071e3;border-color:rgba(0,113,227,.15)}
+.divider{width:100%;height:1px;background:radial-gradient(circle,#e2e8f0 30%,transparent 100%);margin:clamp(28px,4vw,40px) 0}
+
+.section-title{font-size:clamp(1.3rem,2.2vw,1.75rem);font-weight:550;letter-spacing:-.01em;margin:clamp(32px,4.5vw,48px) 0 clamp(14px,2vw,20px)}
+.scroll-margin{scroll-margin-top:80px}
+
+.card{display:block;background:#fff;border-radius:clamp(14px,2vw,18px);padding:clamp(18px,2.8vw,28px);margin-bottom:clamp(14px,2vw,20px);border:1px solid rgba(0,0,0,.1);box-shadow:0 2px 12px rgba(0,0,0,.08);transition:all .15s ease}
+.card .step,.card .data-row,.card .flow-box,.card .result{background:rgba(245,247,252,.6);border:1px solid rgba(0,0,0,.05);border-radius:10px;padding:12px 14px;margin-top:10px}
+.card:hover{border-color:rgba(0,0,0,.12);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.card-icon{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:clamp(6px,1vw,10px);line-height:1}
+.card-title{font-size:clamp(1.15rem,1.6vw,1.4rem);font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.card-sub{font-size:clamp(.76rem,.9vw,.82rem);color:#6e6e73;font-weight:500;border-left:2px solid rgba(0,0,0,.12);padding-left:8px;margin-bottom:clamp(12px,1.8vw,18px)}
+.card-badge{display:inline-flex;align-items:center;font-size:clamp(.64rem,.78vw,.7rem);font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.card-badge.primary{background:rgba(0,113,227,.1);color:#0071e3}
+.card-badge.success{background:rgba(5,150,105,.1);color:#059669}
+.card-badge.warn{background:rgba(217,119,6,.08);color:#d97706}
+
+.step{display:flex;gap:clamp(8px,1.2vw,12px);margin-bottom:clamp(10px,1.5vw,14px);align-items:flex-start}
+.step-num{flex-shrink:0;width:clamp(24px,2.8vw,28px);height:clamp(24px,2.8vw,28px);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:clamp(.68rem,.78vw,.74rem);background:rgba(0,113,227,.1);color:#0071e3}
+.step-body{flex:1;min-width:0}
+.step-title{font-weight:600;font-size:clamp(.84rem,.96vw,.9rem);color:#0f172a;margin-bottom:2px}
+.step-text{font-size:clamp(.82rem,.98vw,.88rem);color:#2d3a4b;line-height:1.6}
+.step-text b{color:#0f172a;font-weight:570}
+
+.ft-list{list-style:none;padding:0;margin:8px 0}
+.ft-list li{padding:5px 0;font-size:clamp(.82rem,.98vw,.88rem);color:#2d3a4b;border-bottom:1px solid #f1f5f9;display:flex;align-items:flex-start;gap:8px}
+.ft-list li::before{content:"·";color:#0071e3;font-weight:700;font-size:1.2rem;line-height:1;flex-shrink:0}
+
+.data-row{display:flex;flex-wrap:wrap;gap:clamp(6px,1vw,10px);margin:clamp(10px,1.5vw,14px) 0}
+.data-chip{display:inline-flex;align-items:baseline;gap:4px;padding:5px 12px;border-radius:30px;font-size:clamp(.7rem,.82vw,.76rem);background:#f8fafc;border:.5px solid #e2e8f0}
+.data-chip .num{font-weight:700;font-size:clamp(.88rem,1vw,.95rem);color:#0071e3}
+.data-chip .num.g{color:#059669}
+.data-chip .label{color:#64748b;font-size:clamp(.62rem,.72vw,.68rem)}
+
+.result{background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.15);border-radius:10px;padding:clamp(10px,1.2vw,14px);margin:clamp(10px,1.5vw,14px) 0;font-size:clamp(.8rem,.92vw,.84rem);color:#166534}
+.result .rtitle{font-weight:600;margin-bottom:4px;color:#059669}
+
+.quote{background:rgba(0,113,227,.05);border-left:3px solid rgba(0,113,227,.3);padding:clamp(8px,1vw,12px) clamp(12px,1.2vw,16px);border-radius:0 10px 10px 0;margin:8px 0;font-size:clamp(.78rem,.88vw,.82rem);color:#4a5568;font-style:italic}
+
+.flow-box{background:#f8fafc;border:1px dashed #e2e8f0;border-radius:10px;padding:clamp(10px,1vw,14px);margin:8px 0;display:flex;flex-wrap:wrap;gap:5px;align-items:center;justify-content:center;font-size:clamp(.7rem,.8vw,.74rem);color:#334155}
+.flow-step{background:#fff;border:.5px solid #e2e8f0;padding:4px 10px;border-radius:999px;white-space:nowrap;font-size:clamp(.68rem,.76vw,.72rem);font-weight:500}
+.flow-arrow{color:#0071e3;font-weight:700}
+
+.arch-box{background:#f8fafc;border:.5px solid rgba(0,0,0,.06);border-radius:10px;padding:clamp(10px,1.2vw,14px);margin:8px 0;font-size:clamp(.78rem,.88vw,.82rem);color:#2d3a4b}
+.arch-box b{color:#0f172a}
+.harness{background:linear-gradient(135deg,#f0f4ff,#f8fafc);border:1px solid #c7d2fe;border-radius:10px;padding:clamp(12px,1.4vw,16px);margin:8px 0}
+.harness .htitle{font-weight:600;font-size:clamp(.78rem,.88vw,.82rem);color:#3730a3;margin-bottom:8px}
+.harness .hstep{display:flex;align-items:flex-start;gap:6px;margin:4px 0;font-size:clamp(.74rem,.84vw,.8rem);color:#2d3a4b}
+.harness .hstep>span:last-child{flex:1;min-width:0}
+.harness .hstep b{color:#0f172a;font-weight:570}
+.harness .hnum{flex-shrink:0;width:20px;height:20px;border-radius:6px;background:#e0e7ff;color:#4338ca;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:clamp(.6rem,.68vw,.64rem)}
+.tradeoff{background:rgba(217,119,6,.05);border-left:3px solid rgba(217,119,6,.4);border-radius:0 10px 10px 0;padding:clamp(8px,1vw,12px) clamp(12px,1.4vw,16px);margin:10px 0;font-size:clamp(.76rem,.86vw,.8rem);color:#78350f;font-weight:500;line-height:1.5}
+.tradeoff .t-label{font-weight:700;color:#d97706;margin-right:4px}
+.tradeoff .t-sacrifice{color:#92400e;text-decoration:line-through;text-decoration-color:rgba(146,64,14,.3);text-underline-offset:3px}
+.tradeoff .t-reason{color:#451a03;font-weight:550}
+
+.gate-table,.constraint-table,.scene-table{width:100%;border-collapse:collapse;font-size:clamp(.64rem,.74vw,.7rem);margin:8px 0;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff}
+.gate-table th,.constraint-table th,.scene-table th,.gate-table td,.constraint-table td,.scene-table td{padding:clamp(4px,.5vw,6px) clamp(6px,.7vw,8px);border:1px solid #e2e8f0;text-align:left}
+.gate-table th,.constraint-table th,.scene-table th{background:#f8fafc;font-weight:600;font-size:clamp(.62rem,.72vw,.68rem);color:#475569}
+.constraint-table td:first-child{font-weight:600;color:#0f172a;white-space:nowrap;font-size:clamp(.64rem,.74vw,.7rem)}
+.constraint-table tr:first-child td,.scene-table tr:first-child td{border-top:none}
+
+.demo-link{display:inline-flex;align-items:center;gap:6px;margin-top:clamp(10px,1.5vw,14px);font-size:clamp(.78rem,.9vw,.82rem);font-weight:520;color:#3b6e8b;text-decoration:none;border-bottom:1px solid transparent;transition:all .2s}
+.demo-link:hover{color:#1e4a6b;gap:10px;border-bottom-color:#3b6e8b}
+
+.footer{text-align:center;padding:clamp(24px,3vw,36px) 0 clamp(16px,2vw,20px);font-size:clamp(.74rem,.84vw,.78rem);color:#86868b;border-top:1px solid #e5e7eb;margin-top:clamp(28px,4vw,40px)}
+.footer a{color:#0071e3;text-decoration:none}
+
+.comp-matrix{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(6px,1vw,10px);margin:clamp(14px,2vw,20px) 0}
+.comp-item{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:clamp(10px,1.4vw,16px);text-align:center;transition:all .2s}
+.comp-item:hover{border-color:rgba(0,113,227,.2);box-shadow:0 4px 12px rgba(0,113,227,.08);transform:translateY(-2px)}
+.comp-icon{font-size:clamp(1.2rem,2vw,1.6rem);margin-bottom:4px}
+.comp-label{font-size:clamp(.64rem,.78vw,.72rem);font-weight:600;color:#1d1d1f;margin-bottom:2px}
+.comp-value{font-size:clamp(.58rem,.7vw,.66rem);color:#6e6e73;line-height:1.3}
+.comp-value strong{color:#0071e3;font-weight:700}
+@media(max-width:640px){.comp-matrix{grid-template-columns:repeat(3,1fr)}}
+
+.fast-track{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.5vw,16px);margin-bottom:clamp(20px,3vw,28px)}
+.ft-card{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:clamp(14px,2vw,20px);border-radius:14px;text-decoration:none;transition:all .2s;border:1px solid transparent;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.ft-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.ft-primary{background:rgba(0,113,227,.04);border-color:rgba(0,113,227,.15)}
+.ft-primary:hover{background:rgba(0,113,227,.08)}
+.ft-success{background:rgba(5,150,105,.04);border-color:rgba(5,150,105,.15)}
+.ft-success:hover{background:rgba(5,150,105,.08)}
+.ft-accent{background:rgba(79,70,229,.04);border-color:rgba(79,70,229,.15)}
+.ft-accent:hover{background:rgba(79,70,229,.08)}
+.ft-icon{font-size:clamp(1.4rem,2vw,1.8rem);line-height:1}
+.ft-label{font-size:clamp(.8rem,.9vw,.88rem);font-weight:600;color:#0f172a}
+.ft-primary .ft-label{color:#0071e3}
+.ft-success .ft-label{color:#059669}
+.ft-accent .ft-label{color:#4338ca}
+.ft-hook{font-size:clamp(.68rem,.78vw,.74rem);color:#64748b;line-height:1.4}
+@media(max-width:640px){.fast-track{grid-template-columns:1fr;gap:8px}.ft-card{padding:12px 14px}}
+
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#0071e3,#0a84ff,#5856d6);z-index:10001;width:0%;transition:width 50ms linear;border-radius:0 2px 2px 0}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:0.5px solid rgba(0,0,0,.08);transform:translateY(-100%);transition:transform .3s ease}
+.top-nav.visible{transform:translateY(0)}
+.top-nav-inner{max-width:880px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:6px clamp(12px,2vw,20px);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.top-nav-inner::-webkit-scrollbar{display:none}
+.top-nav-link{display:flex;align-items:center;gap:3px;text-decoration:none;font-size:clamp(.62rem,.78vw,.72rem);font-weight:500;color:#4b6589;padding:5px 10px;border-radius:999px;white-space:nowrap;transition:all .15s;border:1px solid transparent;flex-shrink:0}
+.top-nav-link:hover{background:#ecf3fa;color:#0b1e2e}
+.top-nav-link.active{background:#e0ecf7;color:#0c3a56;font-weight:600;border-color:rgba(0,113,227,.15)}
+.top-nav-link .nav-icon{font-size:.8rem;opacity:.8}
+@media(max-width:820px){.top-nav-link{font-size:.58rem;padding:4px 7px;gap:2px}.top-nav-link .nav-icon{font-size:.65rem}}
+@media(max-width:480px){.top-nav-link{font-size:.52rem;padding:3px 5px;gap:1px}.top-nav-link .nav-icon{font-size:.55rem}}
+body.has-top-nav{padding-top:44px}
+
+.drawer-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:10000;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+.drawer-overlay.active{opacity:1;visibility:visible}
+.drawer-menu{position:fixed;top:0;left:-280px;width:280px;height:100%;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:10001;transition:left .3s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px;box-shadow:4px 0 20px rgba(0,0,0,.1)}
+.drawer-menu.active{left:0}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #e5e7eb}
+.drawer-title{font-size:16px;font-weight:600;color:#1d1d1f}
+.drawer-close{width:36px;height:36px;border-radius:50%;background:#f3f4f6;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:#6b7280;transition:all .2s}
+.drawer-close:active{background:#e5e7eb;transform:scale(.95)}
+.drawer-link{display:flex;align-items:center;gap:12px;padding:14px 16px;text-decoration:none;color:#374151;border-radius:12px;font-size:14px;font-weight:500;transition:all .2s;margin-bottom:4px}
+.drawer-link:active,.drawer-link:hover{background:#ecf3fa;color:#0c3a56}
+.drawer-link .nav-icon{font-size:18px;width:24px;text-align:center}
+.drawer-divider{height:1px;background:#e5e7eb;margin:12px 0}
+.drawer-trigger{position:fixed;left:12px;bottom:max(80px,calc(env(safe-area-inset-bottom,0) + 70px));width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #e8ecf2;box-shadow:0 4px 12px rgba(0,0,0,.08);display:none;align-items:center;justify-content:center;cursor:pointer;z-index:9999;font-size:20px;transition:all .2s}
+.drawer-trigger:active{transform:scale(.92);background:#ecf3fa}
+@media(max-width:820px){.drawer-trigger{display:flex}.mobile-nav{display:none!important}body{padding-bottom:max(20px,calc(env(safe-area-inset-bottom,0) + 20px))!important}.container{overflow-x:visible}}
+@media(min-width:821px){.drawer-trigger{display:none}.drawer-overlay,.drawer-menu{display:none}}
+
+.anim-ready .card,.anim-ready .section-title,.anim-ready .divider,.anim-ready .comp-matrix{opacity:0;transform:translateY(24px);transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1)}
+.anim-ready .card.in-view,.anim-ready .section-title.in-view,.anim-ready .divider.in-view,.anim-ready .comp-matrix.in-view{opacity:1;transform:translateY(0)}
+.anim-ready .hero{opacity:1;transform:none}
+.anim-ready .hero .role-badge,.anim-ready .hero h1,.anim-ready .hero .contact,.anim-ready .hero .edu,.anim-ready .hero .tags{opacity:0;animation:heroReveal .4s cubic-bezier(.4,0,.2,1) forwards}
+.anim-ready .hero h1{animation-delay:.05s}
+.anim-ready .hero .role-badge{animation-delay:.1s}
+.anim-ready .hero .contact{animation-delay:.15s}
+.anim-ready .hero .edu{animation-delay:.2s}
+.anim-ready .hero .tags{animation-delay:.25s}
+@keyframes heroReveal{to{opacity:1;transform:none}}
+body.anim-off .card,body.anim-off .section-title,body.anim-off .divider,body.anim-off .hero *{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+
+body.speed-active{padding-top:36px}
+body.speed-active .card{border-left:3px solid #0071e3;background:linear-gradient(135deg,rgba(0,113,227,.02),rgba(255,255,255,1))}
+body.speed-active .section-title::after{content:'⚡';margin-left:8px;font-size:.8em;opacity:.5}
+body.speed-active .harness{border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#f0f4ff)}
+body.speed-active .quote{border-left-color:#0071e3;background:rgba(0,113,227,.06)}
+body.speed-active .result{border-color:rgba(0,113,227,.2);background:rgba(0,113,227,.04)}
+body.speed-active details{border:1px dashed #93c5fd;border-radius:10px;padding:8px 12px;margin-top:10px;background:rgba(0,113,227,.02)}
+body.speed-active .step-num{background:rgba(0,113,227,.15)}
+
+.desen{font-size:clamp(.6rem,.7vw,.64rem);color:#86868b;font-style:italic}
+
+.flow-badge{display:inline-flex;align-items:center;gap:3px;font-size:clamp(.6rem,.68vw,.64rem);font-weight:600;background:rgba(0,113,227,.08);color:#0071e3;padding:3px 8px;border-radius:999px;margin:4px 0 6px;white-space:nowrap}
+.flow-badge .fb-step{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#0071e3;color:#fff;font-size:.56rem;font-weight:700;flex-shrink:0}
+.flow-badge .fb-arrow{color:#0071e3;font-size:.6rem;margin:0 1px}
+
+.two-col{display:flex;flex-direction:column;gap:clamp(10px,1.2vw,14px);margin:10px 0}
+
+@media(max-width:640px){
+  .container{padding:clamp(20px,5vw,28px) 14px clamp(24px,6vw,32px)}
+  .hero h1{font-size:1.6rem}
+  .step{flex-direction:column;gap:4px}
+  .card{padding:16px}
+  .flow-box{gap:3px}
+  .flow-step{padding:3px 7px;font-size:.62rem}
+  .data-chip{padding:3px 8px;font-size:.64rem}
+  .data-chip .num{font-size:.78rem}
+  .gate-table,.constraint-table,.scene-table{font-size:.58rem}
+  .flow-badge{font-size:.56rem;padding:2px 6px;white-space:normal;flex-wrap:wrap}
+  .flow-badge .fb-step{width:16px;height:16px;font-size:.5rem}
+  .card-title{font-size:15px;line-height:1.4;word-break:break-word}
+  .card-badge{flex-shrink:0}
+  .data-chip{white-space:normal;word-break:break-word}
+}
+
+@media(max-width:820px){
+  .constraint-table,.scene-table{overflow-x:auto}
+  .constraint-table td:first-child{white-space:normal}
+}
+
+a{color:#0071e3;text-decoration:none}
+</style>
+</head>
+<body id="top">
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="top-nav" id="topNav">
+  <div class="top-nav-inner">
+    <a href="#comp" class="top-nav-link active"><span class="nav-icon">📊</span>能力总览</a>
+    <a href="#need" class="top-nav-link"><span class="nav-icon">🔍</span>需求</a>
+    <a href="#comp-analysis" class="top-nav-link"><span class="nav-icon">⚔️</span>竞品</a>
+    <a href="#data-analysis" class="top-nav-link"><span class="nav-icon">📈</span>数据</a>
+    <a href="#intern" class="top-nav-link"><span class="nav-icon">🏋️</span>实习</a>
+    <a href="#pet" class="top-nav-link"><span class="nav-icon">🐾</span>宠伴</a>
+    <a href="#resume-project" class="top-nav-link"><span class="nav-icon">📄</span>简历优化器</a>
+    <a href="#prompt-lib" class="top-nav-link"><span class="nav-icon">📚</span>Prompt库</a>
+    <a href="#method" class="top-nav-link"><span class="nav-icon">🔄</span>方法论</a>
+    <a href="#ai-native" class="top-nav-link"><span class="nav-icon">🤖</span>AI Native</a>
+  </div>
+</nav>
+
+<nav class="toc-float" id="toc">
+  <div class="toc-header"><span class="toc-title">目录</span><button class="toc-toggle" id="tocToggle" aria-label="折叠目录">−</button></div>
+  <ul class="toc-list">
+    <li><a href="#comp" class="toc-link"><span class="toc-icon">📊</span>能力总览</a></li>
+    <li><a href="#need" class="toc-link"><span class="toc-icon">🔍</span>需求发现</a></li>
+    <li><a href="#comp-analysis" class="toc-link"><span class="toc-icon">⚔️</span>竞品分析</a></li>
+    <li><a href="#data-analysis" class="toc-link"><span class="toc-icon">📈</span>数据分析</a></li>
+    <li><a href="#intern" class="toc-link"><span class="toc-icon">🏋️</span>实习经历</a></li>
+    <li><a href="#pet" class="toc-link"><span class="toc-icon">🐾</span>宠伴</a></li>
+    <li><a href="#resume-project" class="toc-link"><span class="toc-icon">📄</span>简历优化器</a></li>
+    <li><a href="#prompt-lib" class="toc-link"><span class="toc-icon">📚</span>Prompt库</a></li>
+    <li><a href="#method" class="toc-link"><span class="toc-icon">🔄</span>方法论</a></li>
+    <li><a href="#ai-native" class="toc-link"><span class="toc-icon">🤖</span>AI Native</a></li>
+  </ul>
+</nav>
+
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="#comp">📊 能力</a><a href="#need">🔍 需求</a>
+    <a href="#comp-analysis">⚔️ 竞品</a><a href="#data-analysis">📈 数据</a>
+    <a href="#intern">🏋️ 实习</a><a href="#pet">🐾 宠伴</a>
+    <a href="#resume-project">📄 简历</a><a href="#prompt-lib">📚 Prompt</a>
+    <a href="#method">🔄 方法</a><a href="#ai-native">🤖 AI</a>
+  </div>
+</nav>
+
+<button class="drawer-trigger" id="drawerTrigger" aria-label="打开导航菜单">☰</button>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<nav class="drawer-menu" id="drawerMenu">
+  <div class="drawer-header">
+    <span class="drawer-title">📍 导航目录</span>
+    <button class="drawer-close" id="drawerClose" aria-label="关闭导航菜单">✕</button>
+  </div>
+  <a href="#comp" class="drawer-link"><span class="nav-icon">📊</span> 能力总览</a>
+  <a href="#need" class="drawer-link"><span class="nav-icon">🔍</span> 需求发现</a>
+  <a href="#comp-analysis" class="drawer-link"><span class="nav-icon">⚔️</span> 竞品分析</a>
+  <a href="#data-analysis" class="drawer-link"><span class="nav-icon">📈</span> 数据分析</a>
+  <div class="drawer-divider"></div>
+  <a href="#intern" class="drawer-link"><span class="nav-icon">🏋️</span> 实习经历</a>
+  <a href="#pet" class="drawer-link"><span class="nav-icon">🐾</span> 宠伴·健康台账</a>
+  <a href="#resume-project" class="drawer-link"><span class="nav-icon">📄</span> AI简历优化器</a>
+  <a href="#prompt-lib" class="drawer-link"><span class="nav-icon">📚</span> Prompt图书馆</a>
+  <div class="drawer-divider"></div>
+  <a href="#method" class="drawer-link"><span class="nav-icon">🔄</span> 方法论</a>
+  <a href="#ai-native" class="drawer-link"><span class="nav-icon">🤖</span> AI Native 工作流</a>
+</nav>
+
+<div id="speedBanner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9999;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:linear-gradient(135deg,#0071e3,#0a84ff);color:#fff;font-size:13px;font-weight:600;letter-spacing:.3px;box-shadow:0 2px 12px rgba(0,113,227,.3)">
+  <span>⚡ 快速浏览模式已开启</span>
+  <span style="opacity:.7;font-weight:400">· 所有折叠内容已展开 · 滚动动画已关闭</span>
+</div>
+
+<div class="container">
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <h1>陈相豫</h1>
+  <div class="role-badge">AI产品经理</div>
+  <div class="contact">
+    <span>📧 Chenxy012@outlook.com</span>
+    <span>📞 18741557875</span>
+    <span>📍 深圳 · 可即刻到岗</span>
+  </div>
+  <div class="edu">香港大学 · 中国发展研究 · 社会科学硕士<br>北京大学 · 国际政治经济学</div>
+  <div class="tags">
+    <span class="tag accent">社会科学方法论</span><span class="tag accent">Agent架构</span>
+    <span class="tag accent">Prompt Engineering</span><span class="tag accent">用户研究</span>
+    <span class="tag accent">数据分析</span><span class="tag accent">竞品分析</span>
+  </div>
+  <div class="tags" style="margin-top:4px">
+    <span class="tag">Dify</span><span class="tag">LangChain</span><span class="tag">MCP</span><span class="tag">RAG</span><span class="tag">本地化部署</span>
+    <span class="tag">Cursor</span><span class="tag">Claude Code</span><span class="tag">SQL</span><span class="tag">Python</span>
+    <span class="tag">Axure</span><span class="tag">Figma</span>
+  </div>
+  <div class="data-row" style="justify-content:center;margin-top:14px">
+    <div class="data-chip"><span class="num">3</span>个个人核心案例</div>
+    <div class="data-chip"><span class="num">5万</span>字PRD</div>
+    <div class="data-chip"><span class="num">20+</span>用户深访</div>
+    <div class="data-chip"><span class="num">3</span>条产品线并行管理</div>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <button id="speedBtn" style="padding:6px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.12);background:#fff;font-size:13px;cursor:pointer;color:#1d1d1f;font-weight:500;transition:all .15s" onclick="toggleSpeed()">⚡ 快速浏览模式</button>
+    <button id="animBtn" style="padding:6px 16px;border-radius:10px;border:1px solid rgba(0,0,0,.12);background:#fff;font-size:13px;cursor:pointer;color:#1d1d1f;font-weight:500;transition:all .15s" onclick="toggleAnim()">🎬 关闭动画</button>
+  </div>
+</header>
+
+<!-- ===== Fast Track ===== -->
+<div class="fast-track">
+  <a href="#pet" class="ft-card ft-success">
+    <span class="ft-icon">🐾</span>
+    <span class="ft-label">核心案例 · 宠伴</span>
+    <span class="ft-hook">约12人次深度参与·86份问卷·NPS +12→+38 · 隐私优先+零服务器</span>
+  </a>
+  <a href="#resume-project" class="ft-card ft-primary">
+    <span class="ft-icon">📄</span>
+    <span class="ft-label">AI简历优化器</span>
+    <span class="ft-hook">Next.js全栈·多格式解析(PDF/Word/图片)·AI评分与JD匹配</span>
+  </a>
+  <a href="#prompt-lib" class="ft-card ft-accent">
+    <span class="ft-icon">📚</span>
+    <span class="ft-label">Prompt图书馆</span>
+    <span class="ft-hook">React+Vite·本地优先·分类检索·一键复制·导入导出</span>
+  </a>
+</div>
+
+<!-- ===== 作品集描述 ===== -->
+<section style="background:#fff;border-radius:clamp(14px,2vw,18px);padding:clamp(20px,3vw,32px);margin-bottom:clamp(20px,3vw,28px);border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 12px rgba(0,0,0,.04)">
+  <h2 style="font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:600;letter-spacing:-.02em;margin-bottom:clamp(12px,1.8vw,18px);color:#1d1d1f">📖 关于这个作品集</h2>
+  <div style="font-size:clamp(.82rem,.98vw,.88rem);color:#2d3a4b;line-height:1.75">
+    <p style="margin-bottom:12px">我是陈相豫，香港大学社会科学硕士，北京大学国际政治经济学学士，正在寻找AI产品经理机会。这个作品集不是在罗列"我做过什么"——而是记录"我判断过什么，以及我是怎么推动它落地的"。每个关键决策都标注了当时的约束条件：预算、技术边界、用户隐私、时间窗口——不是在真空中做选择，而是在约束中求最优解。实习期3条产品线并行管理，个人项目覆盖健康管理、效率工具、AI应用三大方向。</p>
+    <p style="margin-bottom:12px;font-size:clamp(.76rem,.88vw,.8rem);color:#0071e3;font-weight:520">📌 推荐阅读路径：能力总览 → 实习经历 → 核心案例（宠伴）→ 个人项目 → 方法论。如果你只有3分钟，看这四块就够了。</p>
+    <details style="cursor:pointer;margin-top:8px">
+      <summary style="list-style:none;display:flex;align-items:center;gap:6px;font-size:clamp(.78rem,.92vw,.84rem);font-weight:600;color:#0071e3;padding:8px 0">
+        <span style="width:22px;height:22px;border-radius:6px;background:rgba(0,113,227,.1);color:#0071e3;display:flex;align-items:center;justify-content:center;font-size:.65rem;flex-shrink:0">▶</span>
+        展开阅读完整作品集介绍
+      </summary>
+      <div style="margin-top:12px">
+        <p style="margin-bottom:12px"><strong>为什么是AI产品经理？</strong>社会科学的训练是我的底层操作系统：比较研究方法教会我如何在多个竞品之间建立可比框架，不被单一产品的表面优势迷惑；量化与质性混合研究法让我在深访中捕捉非结构化信息，同时用数据验证假设——"用户说的"和"用户做的"需要交叉验证；政治经济学的分析框架让我习惯在技术可行性和资源约束之间寻找最优解。这不是"文科生表达能力好"——这是用社会科学方法论做产品判断的PM。3个AI产品项目让我从写Prompt、搭Agent、选协议（MCP vs LangChain）、做端侧AI（Tesseract.js本地OCR、Whisper本地转写）的完整链条中，建立了对AI能力边界的直觉。我定义的"AI产品设计"不只是选模型或写提示词，而是判断AI该介入哪个工作流节点、用什么技术方案、失败时怎么降级——这个判断力只有在亲手交付过产品的过程中才能建立。</p>
+        <p style="margin-bottom:12px"><strong>作品集的核心逻辑：</strong>从宠伴（本地优先+隐私优先的宠物健康台账）到AI简历优化器（Next.js全栈多格式解析），到Prompt图书馆（React+Vite本地优先管理工具），我展示了AI产品设计的四个维度——<b>需求层</b>（用户调研→需求分层→竞品分析→KANO优先级）、<b>能力层</b>（AI能力边界判断→Prompt设计→Agent架构→协议选型）、<b>体验层</b>（交互设计→信息架构→响应式适配→隐私优先架构）、<b>验证层</b>（数据闭环设计→NPS追踪→埋点体系→内部测试轮次验证）。每个项目都有完整的"为什么做这个判断/判断依据是什么/怎么推动落地/结果验证了什么"叙事线——这里没有功能列表，只有决策记录。</p>
+        <p style="margin-bottom:12px"><strong>技术实践的三个层次：</strong>①<b>端侧AI判断力</b>——宠伴选Tesseract.js本地OCR（83%用户拒云上传）、简历优化器选本地文件解析（隐私优先不上传服务器）、Prompt库全本地存储；②<b>技术选型决策力</b>——PWA vs 原生App（零门槛优先）、System Prompt直写 vs RAG检索（确定性场景用直写）、Next.js vs Vite（按项目复杂度选框架）；③<b>Vibe Coding交付力</b>——用Cursor和Claude Code快速验证并交付3个可交互产品原型，含PWA离线方案（宠伴）、全栈Web应用（简历优化器）、本地优先SPA（Prompt库），验证了"PM可以前置验证产品假设，帮团队减少方向性返工"。</p>
+        <p style="margin-bottom:12px"><strong>实习经历：</strong>上海析微智能科技实习期间，与团队伙伴共同建立了从0到1的数据驱动决策体系——5张核心数据表+17个SQL模块、5条完整决策链（增长/质量/联动/渠道/商业化）、每项决策都可从SQL追溯原始数据→归因分析→产品决策→效果验证。3条产品线并行管理（AI健身/AI高尔夫/视频分析），P0交付率100%。</p>
+        <p>这个作品集本身是一个AI Native产品——用Vibe Coding构建，用响应式设计适配全设备，用结构化信息架构展示产品经理的专业能力。欢迎随时通过邮件联系我。</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== AI PM 能力矩阵 ===== -->
+<h2 class="section-title scroll-margin" id="comp" style="margin-top:clamp(16px,2.5vw,24px)">AI 产品经理核心能力 <span style="font-size:clamp(.6rem,.7vw,.64rem);font-weight:400;color:#6e6e73;margin-left:8px">— 我判断过什么，以及我是怎么推动它落地的</span></h2>
+<div class="comp-matrix">
+  <div class="comp-item">
+    <div class="comp-icon">🧠</div>
+    <div class="comp-label">AI 产品思维</div>
+    <div class="comp-value">Harness五步法 · AI能力边界判断 · 人机协作模式设计 · <strong>3</strong>个AI产品全流程</div>
+  </div>
+  <div class="comp-item">
+    <div class="comp-icon">📊</div>
+    <div class="comp-label">数据驱动决策</div>
+    <div class="comp-value">NPS <strong>+12→+38</strong> · 留存<strong>44%</strong> · A/B测试 · 5条完整决策链 · SQL+MECE闭环</div>
+  </div>
+  <div class="comp-item">
+    <div class="comp-icon">⚙️</div>
+    <div class="comp-label">技术理解力</div>
+    <div class="comp-value">Prompt/RAG/Agent · MCP协议 · 端侧AI · <strong>Tesseract.js</strong>本地OCR · 全栈开发</div>
+  </div>
+  <div class="comp-item">
+    <div class="comp-icon">🎯</div>
+    <div class="comp-label">用户体验设计</div>
+    <div class="comp-value"><strong>社科方法论驱动</strong>的用户洞察 · <strong>20+</strong>深访覆盖4类人群 · 隐私优先架构</div>
+  </div>
+  <div class="comp-item">
+    <div class="comp-icon">🚀</div>
+    <div class="comp-label">项目落地</div>
+    <div class="comp-value"><strong>100%</strong>P0交付率 · <strong>3条</strong>产品线并行 · <strong>5万</strong>字PRD · 全流程管理</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- ===== PM核心能力：需求发现 ===== -->
+<h2 class="section-title scroll-margin" id="need">PM核心能力 · 需求发现</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">用户访谈 + 行为数据 + 差评挖掘三管齐下，从"用户说的"和"用户做的"两个维度交叉验证需求真伪</p>
+
+<div class="card">
+  <div class="card-icon">🔍</div>
+  <div class="card-title">需求发现方法论</div>
+  <div class="card-sub">从用户行为数据和真实反馈中定义需求，而非从技术能力出发找场景</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">方法论框架</div><div class="step-text"><b>三管齐下：</b>①用户深度访谈（挖掘隐性需求）②SQL行为数据（验证用户真实行为）③应用商店差评分析（发现竞品未满足的需求）。交叉验证"用户说的"和"用户做的"，过滤伪需求。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">案例：AI健身产品线 · 行为数据驱动</div><div class="step-text">通过SQL拆解AI纠错功能全链路（上传视频→触发分析→查看报告→分享）各环节转化数据，发现<b>「查看报告→分享」环节跳出率60%</b>——用户完成训练后才看到纠错报告，错误动作模式已经形成。同时发现<b>注册→首次AI激活仅50%</b>（最大转化瓶颈），AI分析失败41%因视频质量问题。由此驱动两项核心需求定义：①<b>"将反馈时机从训练后前置到训练中"</b>（实时纠错需求）；②<b>"上传前预检+新手引导3步化"</b>（激活优化→D1留存+9.3pp）。</div></div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">案例：宠伴 · 访谈+差评挖掘</div><div class="step-text"><b>约12位</b>宠物主深度访谈+应用商店差评分析，量化定义核心问题——<b>70%</b>用户每月遗忘疫苗接种，<b>83%</b>将隐私顾虑置于成本之上。主动砍掉社区/商城模块，聚焦轻量健康记录，确定"隐私优先+零成本"的产品定位。</div></div></div>
+
+  <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">案例：简历优化器 · 场景观察+痛点挖掘</div><div class="step-text">访谈求职者发现简历定制的核心痛点：①多格式简历（PDF/Word/图片）难以统一解析；②针对不同JD的适配纯靠人工对比，耗时且容易遗漏关键技能词；③现有工具要么收费昂贵，要么需要上传到云端（隐私顾虑）。由此确定<b>"本地解析+AI智能评分+JD匹配"</b>三大核心功能，不做大而全的求职平台，聚焦简历优化这一单一痛点。</div></div></div>
+
+  <!-- 社会科学方法论 -->
+  <details style="cursor:pointer;margin-top:12px">
+    <summary style="list-style:none;display:flex;align-items:center;gap:6px;font-size:clamp(.78rem,.92vw,.84rem);font-weight:600;color:#3730a3;padding:8px 0">
+      <span style="width:24px;height:24px;border-radius:6px;background:rgba(79,70,229,.1);color:#4338ca;display:flex;align-items:center;justify-content:center;font-size:.65rem;flex-shrink:0">🔬</span>
+      社会科学方法论在用户研究中的实际应用（点击展开）
+    </summary>
+    <div style="margin-top:8px;padding-left:clamp(28px,3.5vw,36px)">
+      <div class="step-text" style="margin-bottom:10px"><b>社会科学训练的核心价值不是"会做问卷"——是能拆解用户行为背后的社会性动因，用比较和因果推断找到真正的驱动因素。</b></div>
+      <div style="overflow-x:auto;margin:10px 0;border:1px solid rgba(79,70,229,.12);border-radius:10px;background:#fff">
+        <table style="width:100%;border-collapse:collapse;font-size:clamp(.7rem,.8vw,.76rem);color:#2d3a4b">
+          <tr style="background:rgba(79,70,229,.04)"><th style="padding:7px 10px;text-align:left;font-weight:600;color:#3730a3;white-space:nowrap">研究方法</th><th style="padding:7px 10px;text-align:left;font-weight:600;color:#3730a3;white-space:nowrap">产品应用</th><th style="padding:7px 10px;text-align:left;font-weight:600;color:#3730a3">产出与决策</th></tr>
+          <tr><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">比较研究方法 (Comparative Method)</td><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">4款竞品系统性对比，建立可比框架——不只是功能罗列，而是按"迭代趋势/共性功能/差异化/用户痛点"四维度结构化分析</td><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">发现行业从"记录工具"转向"社交分享"的趋势→驱动海报模板和社交裂变功能设计</td></tr>
+          <tr><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">量化+质性混合研究 (Mixed Methods)</td><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">86份结构化问卷(量化) + 约12人次深度访谈(质性) + 200+条差评LLM分析→三角交叉验证</td><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">KANO模型分层：基础型(疫苗提醒)→期望型(OCR)→兴奋型(AI周报)，MVP优先交付基础型</td></tr>
+          <tr><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">因果推断逻辑 (Causal Inference)</td><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">功能交叉分析：仅AI分析用户D7留存32% vs 全链路用户58%——不是"功能越多越好"，是"评估→纠错→恢复"闭环创造粘性</td><td style="padding:7px 10px;border-top:1px solid rgba(79,70,229,.06);vertical-align:top">体态评估页增加"去训练"入口→功能间联动→AI分析使用率+16pp</td></tr>
+        </table>
+      </div>
+      <div class="step-text">社会科学的训练教给我的是：<b>不被表面现象迷惑，通过系统性对比和因果推断找到真正的驱动因素</b>。"用户说了什么"和"用户做了什么"之间的差距，需要用研究方法来填补。这套方法论不是"天赋"——是学术训练的核心技能：比较研究教我建立可比框架，混合研究法教我交叉验证，因果推断教我识别真正的杠杆点。三者组合，就是社科PM的硬功夫。</div>
+    </div>
+  </details>
+</div>
+
+<!-- ===== PM核心能力：竞品分析 ===== -->
+<h2 class="section-title scroll-margin" id="comp-analysis">PM核心能力 · 竞品分析</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">多维度结构化对比 + LLM辅助批量分析竞品更新日志，提炼可落地的产品决策</p>
+
+<div class="card">
+  <div class="card-icon">⚔️</div>
+  <div class="card-title">竞品分析方法论</div>
+  <div class="card-sub">按迭代趋势/共性方向/差异化方向/用户痛点四维度输出结构化报告</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">方法论框架</div><div class="step-text"><b>四维度结构化对比：</b>①迭代趋势（近12个月更新方向）②共性功能（行业标配）③差异化（竞品独有）④用户痛点（差评高频词）。用LLM辅助批量分析竞品更新日志和用户评论，输出可落地的产品决策。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">案例：AI高尔夫产品线 · 4款竞品深度分析</div><div class="step-text">用DeepSeek/ChatGPT批量分析<b>Golfcam、18Birdies、The Grint、Golfshot</b>近12个月App Store更新日志和用户评论。关键发现：行业趋势从"记录工具"转向"社交分享"，用户核心需求从"看数据"升级为"晒成绩"。<b>直接推动产品决策：</b>海报模板首批设计6套（后优化为3套精选）、历史记录提升为首页一级入口、海报尺寸适配微信朋友圈。</div></div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">案例：宠伴 · 竞品功能对比</div><div class="step-text">对比4款宠物管理类App的疫苗提醒功能、隐私策略、付费模式，发现现有工具<b>重社交商城、轻健康记录</b>，隐私保护均弱于用户预期。由此确定"本地存储+零服务器"的技术差异化路线，把差异化写进PRD。</div></div></div>
+
+  <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">案例：简历优化器 · 替代品分析</div><div class="step-text">调研简历优化类工具（Super Resume、Resume Worded、Jobscan等），发现痛点：①海外工具不支持中文简历；②国内工具多需注册付费，且强制云端上传；③JD匹配功能多为简单的关键词匹配，缺乏语义理解。由此确定<b>"免费+本地+AI深度分析"</b>的差异化定位。</div></div></div>
+</div>
+
+<!-- ===== PM核心能力：数据分析 ===== -->
+<h2 class="section-title scroll-margin" id="data-analysis">PM核心能力 · 数据分析</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">SQL埋点分析 + 漏斗转化 + 数据验证闭环，用数据驱动需求优先级决策和效果验证</p>
+
+<div class="card">
+  <div class="card-icon">📊</div>
+  <div class="card-title">数据分析方法论</div>
+  <div class="card-sub">定义指标→埋点设计→数据采集→漏斗分析→验证闭环</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">方法论框架：数据分析闭环五步</div><div class="step-text"><b>①定义核心指标</b>（转化率/NPS/留存/FAQ等，按产品阶段选北极星）→<b>②埋点事件设计</b>（事件名/触发时机/关键参数，与PRD同步交付）→<b>③SQL数据采集与漏斗拆解</b>（建表→写查询→定位流失点）→<b>④归因分析</b>（分群交叉/渠道对比/失败拆解，找到"为什么"而非只看"是什么"）→<b>⑤决策→验证→闭环</b>（数据驱动的优先级排序和效果追踪）。</div>
+
+  <div style="margin-top:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px">
+    <div style="font-weight:700;color:#0f172a;font-size:.84rem;margin-bottom:8px">实战案例：EasyRight功能交叉分析 · 全链路留存归因</div>
+    <div style="overflow-x:auto;margin:8px 0">
+      <table style="width:100%;border-collapse:collapse;font-size:clamp(.7rem,.8vw,.76rem);color:#2d3a4b">
+        <tr style="background:#f0fdf4"><th style="padding:5px 8px;text-align:left;font-weight:600;color:#065f46">用户组合</th><th style="padding:5px 8px;text-align:center;font-weight:600;color:#065f46">人数</th><th style="padding:5px 8px;text-align:center;font-weight:600;color:#065f46">占比</th><th style="padding:5px 8px;text-align:center;font-weight:600;color:#065f46">D7留存</th></tr>
+        <tr><td style="padding:5px 8px;border-top:1px solid #d1fae5">仅AI分析</td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center">182</td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center">29.4%</td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center"><b style="color:#d97706">32%</b></td></tr>
+        <tr><td style="padding:5px 8px;border-top:1px solid #d1fae5">AI + 体态评估</td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center">87</td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center">14.0%</td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center"><b>45%</b></td></tr>
+        <tr style="background:#ecfdf5"><td style="padding:5px 8px;border-top:1px solid #d1fae5"><b>AI + 体态 + 松解（全链路）</b></td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center"><b>41</b></td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center"><b>6.6%</b></td><td style="padding:5px 8px;border-top:1px solid #d1fae5;text-align:center"><b style="color:#059669">58%</b></td></tr>
+      </table>
+    </div>
+    <div style="font-size:clamp(.7rem,.8vw,.74rem);color:#4a5568;line-height:1.5">
+      <b>归因：</b>全链路用户D7留存58%，是仅AI用户(32%)的<b>1.8倍</b>。"评估→纠错→恢复"闭环创造最强粘性——产品价值不是AI分析单点功能，是"一站式健康管理"的链路完整性。<br>
+      <b>决策：</b>体态评估页增加"去训练"入口→驱动功能间联动，将单功能用户推向全链路。<br>
+      <b>验证：</b>做过体态评估的用户后续AI分析使用率62.6%，比未评估用户(46.6%)高<b>+16pp</b>。
+    </div>
+  </div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">案例：高球记 · 全模块埋点体系</div><div class="step-text">基于原型Demo定义全模块埋点事件体系（共<b>26个事件覆盖11个页面</b>），其中单杆轨迹模块8个事件（首页点击→导入视频→相册/相机选择→轨迹颜色→重播/导出）为核心工作。定义事件名、触发时机、关键参数（trace_color颜色选择等），输出埋点验收标准。</div></div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">案例：宠伴 · A/B验证体系</div><div class="step-text">建立"假设→实验→指标"验证体系：提醒配置意愿指数<b>+13%</b>，记录耗时缩短约<b>60%</b>，种子用户NPS <b>+12→+38</b>，转化率<b>42%</b>，7日留存<b>44%</b>。<span class="desen">[内部测试·种子用户轮次验证]</span></div>
+  <div style="margin-top:8px;background:rgba(100,130,160,.04);border-left:3px solid rgba(100,130,160,.35);border-radius:0 8px 8px 0;padding:8px 12px;font-size:clamp(.7rem,.8vw,.74rem);color:#4a5568;line-height:1.5">
+  <b>关于数据边界的说明：</b>以上量化指标（NPS/留存/转化率）均来自种子用户轮次验证，样本量有限。这些数据用于<b>方向判断</b>——产品有没有在变好、每次迭代有没有改善趋势——而非统计推断。下一阶段目标：在真实商业产品环境中积累自然流量下的转化和留存数据，验证同样方法论在大样本下的有效性。这不是"数据不够好"——这是对数据来源的诚实交代，也是对下一步的明确规划。
+  </div></div></div>
+</div>
+
+<!-- ===== 实习经历 ===== -->
+<h2 class="section-title scroll-margin" id="intern">实习经历</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">上海析微智能科技 · AI产品经理 · 2026.04-06 · 3条产品线并行管理</p>
+<p class="desen" style="margin-bottom:18px">展示范围为实习期个人判断的产品部分。以下数据、方法论、工具均为与团队伙伴共同确定和积累。</p>
+
+<div class="card">
+  <div class="card-icon">🏋️</div>
+  <div class="card-title">EasyRight AI · 健身私教 <span class="card-badge primary">实习核心</span></div>
+  <div class="card-sub">AI产品方案 · 多模块统筹 · 3条产品线并行管理</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">背景</div><div class="step-text">参与上海析微智能科技的AI健身产品线，通过摄像头+传感器实现AI运动纠错。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">产品架构与决策</div><div class="arch-box"><b>4模块并行推进：</b>体态评估(P0) | 松解工具(P1) | 视频上传(P0) | Golf(P1) · <b>优先级体系：</b>P0/P1/P2 + 每周站会</div>
+  <div class="step-text" style="margin-top:8px"><b>为什么做：</b>创业公司多条产品线共享同一套生物力学底层技术，需要快速验证多赛道市场可行性，不能All-in单一产品线。</div>
+  <div class="step-text"><b>怎么做：</b>4模块并行推进（体态评估P0/松解工具P1/视频上传P0/Golf P1），建立P0/P1/P2优先级体系+每周站会跟踪。首页合并功能相似模块（体态评估+松解工具→"训练"），保留独立模块（视频/Golf）。</div>
+  <div class="step-text"><b>为谁做：</b>C端健身用户（运动纠错需求）、高尔夫玩家（挥杆分析需求）、B端健身房（Agent硬件需求），三类用户群市场需求独立。</div>
+  <div class="step-text"><b>交付成果：</b></div>
+  <ul class="ft-list">
+    <li>并行管理3条产品线（健身/高尔夫/视频分析），P0交付率100%（8项P0+22项P1）</li>
+    <li>首页功能合并方案（体态评估+松解工具→"训练"）内部走查一轮过关，沟通成本大幅降低</li>
+    <li>P0/P1/P2优先级体系让资源分配从"事后解释"变为"事前共识"，团队对齐效率显著提升</li>
+  </ul>
+  <div class="data-row" style="margin-top:12px">
+    <span class="data-chip"><span class="num">1000人</span><span class="label">共创群</span></span>
+    <span class="data-chip"><span class="num">→620</span><span class="label">注册(62%)</span></span>
+    <span class="data-chip"><span class="num g">52→95</span><span class="label">DAU(+83%)</span></span>
+    <span class="data-chip"><span class="num g">29.9%</span><span class="label">D7留存</span></span>
+    <span class="data-chip"><span class="num g">90.2→96.5%</span><span class="label">AI成功率</span></span>
+  </div>
+  <div class="data-row" style="margin-top:6px">
+    <span class="data-chip"><span class="num g">¥1,080</span><span class="label">MRR</span></span>
+    <span class="data-chip"><span class="num g">¥248</span><span class="label">LTV</span></span>
+    <span class="data-chip"><span class="num g">4.0x</span><span class="label">LTV/CAC</span></span>
+    <span class="data-chip"><span class="num">34人</span><span class="label">付费(5.5%)</span></span>
+    <span class="data-chip"><span class="num g">67.6%</span><span class="label">D30付费留存</span></span>
+  </div></div></div>
+
+  <div class="step" style="margin-top:14px"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">#</div><div class="step-body"><div class="step-title" style="color:#059669">数据体系建立：不是为了写SQL，是为了能独立回答产品问题</div><div class="step-text">埋点与产品同步上线——建5张核心表+17个SQL模块后，<b>我能独立回答12个之前没人能回答的产品问题</b>：激活瓶颈在哪（注册→激活仅50%）、哪个功能最留人（全链路D7 58% vs 仅AI 32%）、哪种渠道ROI最高（共创群付费6.8% vs 自然2.3%）、AI失败根因是什么（41%视频质量问题→源头修复而非优化模型）、付费转化窗口在何时（80%在14天内）。PM写SQL的价值不是"我会查数据"——是"数据告诉我该做什么决策"。</div></div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">A</div><div class="step-body"><div class="step-title" style="color:#059669">决策链① 激活瓶颈 · 漏斗拆解与归因</div>
+    <div class="step-text" style="margin-bottom:4px"><b>漏斗：</b>1000共创群→620注册(62%)→<b style="color:#d97706">310激活(50%)⚠️最大瓶颈</b>→118触达付费墙(38%)→61发起购买(52%)→34付费(56%)。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>瓶颈定位：</b>注册→首次AI激活仅50%——一半用户下载了但从未体验核心价值。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>决策：</b>新手引导3步化+首分析免费→降低用户第一次上传视频的心理门槛。</div>
+    <div class="step-text"><b>结果：</b>D1留存 46%→55.3%(+9.3pp)，D7留存 29.9%超行业基准20-25%。DAU连续4周52→72→88→95(+83%)。<span class="desen">[内部测试·埋点数据]</span></div>
+  </div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">B</div><div class="step-body"><div class="step-title" style="color:#059669">决策链② AI质量 · 失败归因与源头修复</div>
+    <div class="step-text" style="margin-bottom:4px"><b>数据：</b>AI分析成功率90.2%，失败46次——归因拆解：<b style="color:#d97706">视频质量41%</b> / 动作识别28% / 超时17% / 服务端13%。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>归因：</b>41%失败是视频质量——不是AI模型不行，是"用户上传了什么"的问题。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>决策：</b>上传前视频质量预检PRD→检测分辨率/光线/角度→不合格即时提示。</div>
+    <div class="step-text"><b>结果：</b>AI成功率 90.2%→92.4%→94.6%→96.5%(+6.3pp)，P95耗时 17.5s→13.5s。P0 Bug 6个全清零，崩溃率0.4%。<span class="desen">[内部测试·埋点数据]</span></div>
+  </div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">C</div><div class="step-body"><div class="step-title" style="color:#059669">决策链③ 功能联动 · 交叉分析发现留存杠杆</div>
+    <div class="step-text" style="margin-bottom:4px"><b>数据：</b>功能交叉分析——仅AI分析用户D7留存32%，AI+体态用户留存45%，<b style="color:#059669">全链路用户(AI+体态+松解)D7留存58%，是仅AI用户的1.8倍</b>。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>归因：</b>"评估→纠错→恢复"闭环创造最强粘性。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>决策：</b>体态评估页增加"去训练"入口→驱动功能间联动。</div>
+    <div class="step-text"><b>结果：</b>做过体态评估的用户后续AI分析使用率62.6%，比未评估用户(46.6%)高<b>+16pp</b>。<span class="desen">[内部测试·埋点数据]</span></div>
+  </div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">D</div><div class="step-body"><div class="step-title" style="color:#059669">决策链④ 渠道ROI · 分群对比驱动获客策略</div>
+    <div class="step-text" style="margin-bottom:4px"><b>数据：</b>分渠道对比——共创群转化付费率<b style="color:#059669">6.8%</b>(ARPPU ¥33.2) vs App Store自然搜索<b style="color:#d97706">2.3%</b>(ARPPU ¥28)。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>决策：</b>优先社群运营获客——不需要投广告，把现有1000人社群的转化做深。</div>
+    <div class="step-text"><b>结果：</b>CAC ¥62.5，LTV ¥248，LTV/CAC 4.0x远超3x健康线。<span class="desen">[内部测试·埋点数据]</span></div>
+  </div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">E</div><div class="step-body"><div class="step-title" style="color:#059669">决策链⑤ 商业化优化 · 转化窗口与会员结构</div>
+    <div class="step-text" style="margin-bottom:4px"><b>漏斗终点：</b>34人付费(5.5%)，MRR ¥1,080，累计收入¥1,632。付费用户D30留存67.6%——是免费用户(16.7%)的<b>4倍</b>。</div>
+    <div class="step-text" style="margin-bottom:4px"><b>转化窗口分析：</b>80%付费发生在14天内，其中8-14天是绝对主力(38%)——免费次数耗尽是最大触发点。</div>
+    <div class="step-text"><b>两项决策：</b>①前两周强化付费引导②首周内推周→月升级引导。<span class="desen">[内部测试·埋点数据]</span></div>
+  </div></div>
+
+  <div class="result" style="margin-top:10px"><div class="rtitle">数据驱动闭环总览</div>5项决策链(A→E)覆盖增长/质量/联动/渠道/商业化五大维度，每项都可从SQL追溯原始数据→归因分析→产品决策→效果验证。4周内从0建立完整数据驱动决策体系——不是"上线后看数据"，而是"数据体系与产品同步上线，每个决策都有数据锚点"。</div>
+</div>
+
+<div class="card">
+  <div class="card-icon">⛳</div>
+  <div class="card-title">AI高尔夫产品线 · 视频分析</div>
+  <div class="card-sub">核心功能设计 · PRD迭代 · Bug推动</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">背景</div><div class="step-text">参与上海析微智能科技的AI高尔夫视频分析产品，通过AI识别挥杆动作并生成飞行轨迹与距离数据。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">产品架构与决策</div><div class="arch-box"><b>四大功能模块：</b>单杆轨迹（AI识别挥杆→飞行轨迹+距离）→比赛视频（多人挥杆对比）→成绩战报（照片+记分卡→海报）→历史记录（数据沉淀+趋势追踪）</div>
+  <div class="step-text" style="margin-top:8px"><b>为什么"单杆轨迹"优先于其他功能：</b>用户访谈发现"挥杆后想立刻看飞行轨迹"是最高频需求——也是用户选择AI高尔夫工具的核心原因。</div>
+  <div class="step-text"><b>为什么重点做社交分享（海报）而非纯数据展示：</b>竞品分析发现行业趋势从"记录工具"转向"社交分享"——高尔夫玩家核心需求从"看数据"升级为"晒成绩"。</div>
+  <div class="data-row" style="margin-top:12px">
+    <span class="data-chip"><span class="num">200人</span><span class="label">种子用户</span></span>
+    <span class="data-chip"><span class="num">26事件</span><span class="label">11页面</span></span>
+    <span class="data-chip"><span class="num g">60%</span><span class="label">轨迹FAQ</span></span>
+    <span class="data-chip"><span class="num g">52%</span><span class="label">战报分享</span></span>
+    <span class="data-chip"><span class="num g">12→34%</span><span class="label">Push点击率</span></span>
+  </div></div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">A</div><div class="step-body"><div class="step-title" style="color:#059669">决策链① 模块优先级 · FAQ驱动的资源倾斜</div>
+    <div class="step-text" style="margin-bottom:4px"><b>数据：</b>200种子用户·3模块FAQ——<b style="color:#059669">单杆轨迹60%(120人)</b> / 成绩战报41%(82人) / <b style="color:#d97706">比赛视频17.5%(35人)</b>。</div>
+    <div class="step-text"><b>决策：</b>单杆轨迹P0资源倾斜，比赛视频果断降级至P2——不做减法就会样样做不好。<span class="desen">[种子用户·FAQ表]</span></div>
+  </div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">B</div><div class="step-body"><div class="step-title" style="color:#059669">决策链② 漏斗优化 · 流失点定位与社交裂变</div>
+    <div class="step-text" style="margin-bottom:4px"><b>漏斗拆解：</b>单杆轨迹 120→24(完成率20%)——<b style="color:#d97706">回放→导出流失61%⚠️</b>。成绩战报 82→22(完成率26.8%)。</div>
+    <div class="step-text"><b>决策：</b>战报海报模板6套→3套精选（减法是自信），尺寸适配微信朋友圈。每分享带来平均1.2个新用户。<span class="desen">[种子用户·漏斗转化表]</span></div>
+  </div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">C</div><div class="step-body"><div class="step-title" style="color:#059669">决策链③ Push策略 · 使用节奏分析→精准时机</div>
+    <div class="step-text" style="margin-bottom:4px"><b>数据：</b>DAU~22，周末高峰~30，<b style="color:#059669">66%使用集中在周末</b>。</div>
+    <div class="step-text"><b>决策：</b>Push从"每天发"改为"周四晚+周六早"——周四晚提醒周末打球准备，周六早抓住出发前窗口。<b>结果：</b>Push点击率12%→34%(+22pp)。<span class="desen">[种子用户·DAU分布]</span></div>
+  </div></div>
+
+  <div class="step"><div class="step-num" style="background:rgba(5,150,105,.1);color:#059669">D</div><div class="step-body"><div class="step-title" style="color:#059669">决策链④ 入口优化 · 高返回率暴露的导航问题</div>
+    <div class="step-text" style="margin-bottom:4px"><b>数据：</b>历史记录返回率高但入口深——用户想回看数据，但每次要点3步才能找到。</div>
+    <div class="step-text"><b>决策：</b>历史记录提升为首页一级入口。<b>结果：</b>日访问6→18人(<b>+200%</b>)。<span class="desen">[种子用户·入口访问统计]</span></div>
+  </div></div>
+
+  <div class="result" style="margin-top:10px"><div class="rtitle">数据驱动闭环总览</div>从0建立26事件埋点体系→3模块FAQ定位主力功能→漏斗拆解发现流失点→Push策略匹配用户真实节奏→入口优化验证数据假设。与EasyRight共享数据方法论，验证了PM分析框架从大众健身到小众高尔夫的<b>可迁移性</b>。</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 个人项目：宠伴 ===== -->
+<h2 class="section-title scroll-margin" id="pet">核心案例：宠伴·健康台账</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">从0到1完成的核心产品，展示AI产品经理完整能力闭环</p>
+
+<div class="card">
+  <div class="card-icon">🐾</div>
+  <div class="card-title">宠伴·健康台账 <span class="card-badge success">核心案例</span></div>
+  <div class="card-sub">产品负责人 · PWA零服务器独立交付</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">背景</div><div class="step-text">多宠家庭疫苗、驱虫、体检提醒分散在相册与群聊，易遗漏；记录路径长，持续使用意愿弱。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">问题定义 · 用户需求调研</div>
+  <div class="step-text"><b>调研方法：</b><b>约12位</b>宠物主深度访谈（40-60分钟/人，覆盖新手/多宠/流失/行业专家4类人群）+ <b>86份</b>问卷（有效<b>72份</b>）+ 4款头部App近6个月<b>200+</b>条评论LLM情感分析。KANO分层：基础型（疫苗提醒+多宠档案）、期望型（本地OCR+花费视图）、兴奋型（AI周报+PWA离线），基础型优先交付。</div>
+  <div class="step-text"><b>核心发现：</b>约<b>70%</b>用户每月至少遗忘一次接种节点；约<b>83%</b>不愿上传接种凭证到云端。由此确立"轻量健康记录册·隐私优先·零服务器依赖"的产品定位。</div>
+  <div class="quote">「我不想为了记这个再下一个特别重的App，最好打开就能补一条。」——用户原话（已脱敏）</div></div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">产品架构与决策</div>
+  <div class="arch-box"><b>定位：</b>轻量健康记录册·隐私优先·零服务器依赖 · <b>主动砍掉：</b>社区、商城（访谈中仅2人提到）· <b>MVP闭环：</b>自动提醒+疫苗记录→反馈驱动加OCR→再加数据看板</div>
+  <div style="overflow-x:auto;margin:10px 0">
+    <table class="constraint-table">
+      <tr><th>约束类型</th><th>约束条件</th><th>我的取舍</th></tr>
+      <tr><td>成本</td><td>零服务器预算（个人项目）</td><td>砍社区/商城 → PWA + localStorage</td></tr>
+      <tr><td>隐私</td><td>83%用户拒绝云上传</td><td>Tesseract.js本地OCR（牺牲识别精度换数据主权）</td></tr>
+      <tr><td>用户注意力</td><td>"不想下一个新App"（用户原话）</td><td>PWA免安装（牺牲原生体验换零门槛）</td></tr>
+      <tr><td>时间</td><td>1人开发，业余时间</td><td>推迟花费看板/AI周报到V2，MVP先验证核心提醒闭环</td></tr>
+    </table>
+  </div>
+  <div class="tradeoff"><span class="t-label">取舍：</span>我选择<span class="t-sacrifice">牺牲原生App的推送和交互动效</span>，因为用户说的第一句话是"不想下一个新App"——零门槛比流畅动效更重要。</div>
+  </div></div>
+
+  <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">功能点 + Harness底层逻辑</div><ul class="ft-list">
+    <li>多宠独立档案+疫苗日历+花费看板+智能提醒（按宠隔离）</li>
+    <li>本地OCR识别接种凭证（Tesseract.js，83%用户拒绝云上传）</li>
+    <li>自动算有效期+按月聚合花费视图（用户反馈驱动）</li>
+    <li>AI健康周报（基于疫苗/驱虫/花费数据生成智能报告）</li>
+    <li>PWA可安装+离线可用+JSON导出备份</li>
+  </ul>
+  <div class="harness">
+    <div class="htitle">Harness 五步链路（本项目）</div>
+    <div class="hstep"><span class="hnum">1</span><b>功能点：</b>多宠家庭疫苗、驱虫提醒分散，记录路径长，持续使用意愿弱</div>
+    <div class="hstep"><span class="hnum">2</span><b>AI方案：</b>Tesseract.js本地OCR + 规则引擎自动算有效期 + AI周报生成</div>
+    <div class="hstep"><span class="hnum">3</span><b>评测+MECE：</b>提醒配置意愿指数（任务完成率×0.35+配置意愿量表×0.35+主观耗时×0.30）</div>
+    <div class="hstep"><span class="hnum">4</span><b>跑评测：</b>NPS +12→+38，转化率42%，D7留存44%，记录耗时~60%↓</div>
+    <div class="hstep"><span class="hnum">5</span><b>改链路：</b>需求池50条工单（40已闭环+7进行中+3待评审），每轮迭代将改善效果反馈到下一轮</div>
+  </div></div></div>
+
+  <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">用户流程</div><div class="flow-box">
+    <span class="flow-step">打开即建档</span><span class="flow-arrow">→</span><span class="flow-step">设疫苗提醒(按宠隔离)</span><span class="flow-arrow">→</span><span class="flow-step">拍照→本地OCR→确认入账</span><span class="flow-arrow">→</span><span class="flow-step">看板查看健康+花费</span>
+  </div></div></div>
+
+  <div class="step"><div class="step-num">6</div><div class="step-body"><div class="step-title">验证结果</div>
+  <div class="data-row">
+    <span class="data-chip"><span class="num g">+13%</span><span class="label">提醒配置意愿</span></span>
+    <span class="data-chip"><span class="num g">~60%↓</span><span class="label">记录耗时</span></span>
+    <span class="data-chip"><span class="num g">+12→+38</span><span class="label">NPS</span></span>
+    <span class="data-chip"><span class="num">42%</span><span class="label">转化率</span></span>
+    <span class="data-chip"><span class="num">44%</span><span class="label">D7留存</span></span>
+  </div>
+  <div class="result"><div class="rtitle">核心成果</div>种子用户NPS从+12提升至+38，转化率42%，7日留存44%。<span class="desen">[内部测试·种子用户轮次验证]</span> PWA零服务器成本完成idea→验证→迭代闭环。</div>
+  <div class="step-text" style="margin-top:6px;background:rgba(0,113,227,.04);border-left:3px solid rgba(0,113,227,.3);border-radius:0 10px 10px 0;padding:10px 14px;font-size:clamp(.78rem,.88vw,.82rem);color:#4a5568"><b>AI 决策总结：</b>本地 OCR 选 Tesseract.js（83%用户拒云上传）→ 隐私优先的端侧 AI；AI 周报基于结构化数据生成 → 确定性数据场景用规则+模板而非大模型自由生成；PWA 离线可用 → AI 功能不依赖服务端。三个 AI 决策均以用户隐私为第一优先级。</div>
+  <a href="https://github.com/Chantelle-CC/project-pet-vaccine" target="_blank" class="demo-link">查看 GitHub 仓库 →</a>
+</div>
+
+<!-- ===== 个人项目：AI简历优化器 ===== -->
+<h2 class="section-title scroll-margin" id="resume-project">个人项目：AI简历优化器</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">Next.js全栈应用，多格式简历解析+AI评分+JD匹配，隐私优先的本地处理架构</p>
+
+<div class="card">
+  <div class="card-icon">📄</div>
+  <div class="card-title">AI简历优化器 <span class="card-badge primary">个人项目</span></div>
+  <div class="card-sub">Next.js 16 + React 19 + TypeScript + Tailwind CSS + shadcn/ui</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">背景与问题定义</div><div class="step-text">求职者面对不同JD时需要反复修改简历，但手动对比JD和简历不仅耗时，还容易遗漏关键技能词。核心痛点：<b>解析难</b>（PDF/Word/图片三种格式混杂）、<b>对比难</b>（JD关键要求vs简历内容的人工逐一比对）、<b>隐私顾虑</b>（简历包含大量个人信息，用户不愿上传到陌生服务器）。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">产品架构与决策</div>
+  <div class="arch-box"><b>技术栈：</b>Next.js 16 + React 19 + TypeScript + Tailwind CSS + shadcn/ui · <b>解析引擎：</b>pdfjs-dist(PDF) + mammoth(Word) + Tesseract.js(图片OCR) · <b>AI能力：</b>简历评分+优化建议+JD匹配分析</div>
+  <div class="step-text" style="margin-top:8px"><b>为什么选Next.js：</b>需要全栈能力——前端展示+后端AI调用+文件处理，Next.js的API Routes可以用一个项目覆盖所有需求。</div>
+  <div class="step-text"><b>为什么所有文件处理都在本地：</b>简历包含手机号、邮箱、工作经历等敏感信息。与宠伴的产品哲学一致——隐私优先。pdfjs-dist和mammoth在浏览器端解析，文件不出用户设备。</div>
+  <div class="tradeoff"><span class="t-label">取舍：</span>我选择<span class="t-sacrifice">牺牲云端的OCR识别精度和解析速度</span>，因为<span class="t-reason">简历比宠物疫苗记录更敏感——用户不会接受个人信息上传到任何第三方服务器</span>。</div>
+  </div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">功能点</div><ul class="ft-list">
+    <li>多格式简历上传：支持PDF、Word(.docx)、图片(.png/.jpg)三种格式</li>
+    <li>AI简历评分：从完整性、结构清晰度、关键词密度、成就量化四个维度打分</li>
+    <li>JD匹配分析：粘贴JD → AI对比分析 → 输出匹配度报告 + 缺失技能提醒 + 改写建议</li>
+    <li>一键导出优化后的简历</li>
+    <li>全本地处理：文件解析、OCR识别均在浏览器端完成，不上传任何服务器</li>
+  </ul></div></div>
+
+  <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">用户流程</div><div class="flow-box">
+    <span class="flow-step">上传简历(PDF/Word/图片)</span><span class="flow-arrow">→</span><span class="flow-step">本地解析提取文本</span><span class="flow-arrow">→</span><span class="flow-step">AI评分+改进建议</span><span class="flow-arrow">→</span><span class="flow-step">(可选)粘贴JD→匹配分析</span><span class="flow-arrow">→</span><span class="flow-step">一键导出</span>
+  </div></div></div>
+
+  <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Harness 五步链路</div>
+  <div class="harness">
+    <div class="htitle">Harness 五步链路（本项目）</div>
+    <div class="hstep"><span class="hnum">1</span><b>功能点：</b>求职者需要将简历针对不同JD进行定制优化，手动对比耗时且遗漏关键技能词</div>
+    <div class="hstep"><span class="hnum">2</span><b>AI方案：</b>LLM驱动的简历评分+JD匹配+优化建议生成，本地文件解析保护用户隐私</div>
+    <div class="hstep"><span class="hnum">3</span><b>评测+MECE：</b>四维评分体系（完整性/结构/关键词/成就量化），JD匹配度用技能覆盖率+经验匹配度+关键词重叠率</div>
+    <div class="hstep"><span class="hnum">4</span><b>跑评测：</b>用真实JD和简历测试匹配准确度，对比人工分析结果校准AI评分区间</div>
+    <div class="hstep"><span class="hnum">5</span><b>改链路：</b>根据评测结果调优Prompt→校准评分权重→改善JD匹配的语义理解</div>
+  </div></div></div>
+
+  <a href="https://github.com/Chantelle-CC/project-resume" target="_blank" class="demo-link">查看 GitHub 仓库 →</a>
+</div>
+
+<!-- ===== 个人项目：Prompt图书馆 ===== -->
+<h2 class="section-title scroll-margin" id="prompt-lib">个人项目：Prompt图书馆</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">React+Vite前端应用，本地优先的Prompt管理工具，分类检索+一键复制</p>
+
+<div class="card">
+  <div class="card-icon">📚</div>
+  <div class="card-title">Prompt图书馆 <span class="card-badge warn">个人项目</span></div>
+  <div class="card-sub">React 19 + Vite 8 + TypeScript + Tailwind CSS · 本地优先 · 分类标签系统</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">背景与问题定义</div><div class="step-text">PM和开发者在日常工作中积累了大量Prompt，但分散在ChatGPT、Claude、Notion、本地文件等多个工具中，没有统一的管理和检索方式。核心痛点：<b>碎片化</b>（Prompt分散在各处）、<b>无分类</b>（缺少统一的分类和标签体系）、<b>无复用</b>（好的Prompt无法快速复制和分享）。目标：做一个"Prompt的图书馆"——存得进、找得到、用得了。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">产品架构与决策</div>
+  <div class="arch-box"><b>技术栈：</b>React 19 + Vite 8 + TypeScript + Tailwind CSS + lucide-react · <b>存储：</b>localStorage本地持久化 · <b>ID生成：</b>nanoid · <b>检索：</b>分类+标签双索引</div>
+  <div class="step-text" style="margin-top:8px"><b>为什么选Vite而非Next.js：</b>Prompt库是纯前端工具——不需要服务端渲染、不需要API Routes、不需要数据库。Vite的HMR极快、构建产物小、部署简单（静态文件即可），是最匹配项目复杂度的选择。</div>
+  <div class="step-text"><b>为什么用localStorage而非数据库：</b>Prompt是文本数据，单条一般不超过几千字，总量不超过几百条——localStorage的5MB限制完全够用。零后端、零部署、零运维成本。</div>
+  <div class="tradeoff"><span class="t-label">取舍：</span>我选择<span class="t-sacrifice">牺牲多设备同步和团队协作功能</span>，因为<span class="t-reason">MVP的核心问题是"存和找"——先把这两个做到极致，同步是V2的事</span>。</div>
+  </div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">功能点</div><ul class="ft-list">
+    <li>Prompt增删改查：标题、内容、分类、标签四个核心字段</li>
+    <li>分类检索：按预设分类（产品/开发/设计/写作/数据分析等）筛选</li>
+    <li>标签搜索：自定义标签+模糊搜索，支持多标签组合筛选</li>
+    <li>一键复制：点击即复制Prompt内容到剪贴板</li>
+    <li>导入导出：JSON格式批量导入导出，支持备份和迁移</li>
+    <li>响应式设计：桌面端+移动端自适应</li>
+  </ul></div></div>
+
+  <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">用户流程</div><div class="flow-box">
+    <span class="flow-step">新增Prompt→填标题/内容/分类/标签</span><span class="flow-arrow">→</span><span class="flow-step">浏览分类或搜索标签</span><span class="flow-arrow">→</span><span class="flow-step">找到目标→一键复制</span><span class="flow-arrow">→</span><span class="flow-step">粘贴到AI工具使用</span>
+  </div></div></div>
+
+  <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Harness 五步链路</div>
+  <div class="harness">
+    <div class="htitle">Harness 五步链路（本项目）</div>
+    <div class="hstep"><span class="hnum">1</span><b>功能点：</b>Prompt碎片化分散在多个工具中，缺乏统一管理和快速检索能力</div>
+    <div class="hstep"><span class="hnum">2</span><b>AI方案：</b>分类+标签双索引系统，localStorage本地持久化，纯前端架构零后端依赖</div>
+    <div class="hstep"><span class="hnum">3</span><b>评测+MECE：</b>分类体系覆盖产品/开发/设计/写作/数据分析等8大类别，标签系统支持自由组合</div>
+    <div class="hstep"><span class="hnum">4</span><b>跑评测：</b>用个人积累的50+条Prompt测试检索效率、分类准确度、复制便捷性</div>
+    <div class="hstep"><span class="hnum">5</span><b>改链路：</b>根据使用反馈优化分类体系→增加模糊搜索→优化移动端交互</div>
+  </div></div></div>
+
+  <a href="https://github.com/Chantelle-CC/prompt-library" target="_blank" class="demo-link">查看 GitHub 仓库 →</a>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 方法论 ===== -->
+<h2 class="section-title scroll-margin" id="method">产品方法论：Harness 五步法</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">一套可复用的AI产品设计方法论——从功能点到AI方案，从评测到迭代，五个步骤形成完整闭环</p>
+
+<div class="card">
+  <div class="card-icon">🔄</div>
+  <div class="card-title">Harness — 驾驭AI能力的五步产品方法论</div>
+  <div class="card-sub">功能点发现→AI方案设计→评测体系建立→跑评测→改进链路</div>
+
+  <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">功能点（Function Point）</div><div class="step-text">从用户场景出发定义功能点——不是从AI能力出发找场景，而是从用户痛点出发判断AI是否是正确解法。关键判断：这个功能点用AI解决比传统方法好在哪里？<b>案例：</b>宠伴的疫苗提醒——用简单的规则引擎（日期计算+浏览器Notification API）比LLM更可靠。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">AI方案（AI Solution）</div><div class="step-text">选定AI能力后，做技术方案选型：用哪种模型？用Prompt直写还是RAG？用Agent还是单一模型？Temperature设多少？每一项选择都需要有理由。<b>核心判断框架：</b>确定性审核→System Prompt直写；开放性知识检索→RAG；多步骤协作→Agent编排；端侧隐私敏感→本地模型。</div></div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">评测+MECE（Evaluation + MECE）</div><div class="step-text">建立可量化的评测体系——不是"感觉变好了"，是有具体指标（NPS/留存/转化率/准确率/召回率/幻觉率）。用MECE原则拆解评测维度，确保覆盖完整且互不重叠。</div></div></div>
+
+  <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">跑评测（Run Evaluation）</div><div class="step-text">用真实数据跑评测——不是demo数据，是生产环境的数据。记录结果，对比方案（A/B测试），输出评测报告。<b>案例：</b>宠伴的A/B验证体系——提醒配置意愿指数+13%，记录耗时~60%↓，NPS +12→+38。</div></div></div>
+
+  <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">改链路（Improve Pipeline）</div><div class="step-text">根据评测结果针对性优化——不是"全面改进"，是"数据告诉我在哪里改进最有效"。形成闭环：改进→复测→验证改善→如果无效则回滚或换方向。</div></div></div>
+
+  <div class="result"><div class="rtitle">方法论的可迁移性验证</div>Harness五步法已在3个不同领域验证：①宠物健康管理（C端、隐私优先、PWA）②简历优化（C端工具、本地处理、全栈）③Prompt管理（C端工具、纯前端、轻量级）。三个项目在用户群、技术栈、产品形态上各不相同，但方法论框架完全可复用。</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== AI Native 工作流 ===== -->
+<h2 class="section-title scroll-margin" id="ai-native">AI Native 工作流</h2>
+<p style="font-size:clamp(.8rem,.9vw,.84rem);color:#6e6e73;margin-bottom:18px">从Vibe Coding到Agent编排，我的AI工具链和工作方法</p>
+
+<div class="card">
+  <div class="card-icon">🤖</div>
+  <div class="card-title">我的AI Native工具链</div>
+  <div class="card-sub">工具选择反映产品判断——不是"越多越好"，是"每个工具解决一个特定问题"</div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:12px 0">
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;text-align:center">
+      <div style="font-size:1.6rem;margin-bottom:4px">🖥️</div>
+      <div style="font-weight:600;font-size:.84rem;color:#0f172a">Cursor / Claude Code</div>
+      <div style="font-size:.72rem;color:#64748b;line-height:1.4;margin-top:4px">Vibe Coding主力工具<br>3个产品原型全部用AI辅助构建</div>
+    </div>
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;text-align:center">
+      <div style="font-size:1.6rem;margin-bottom:4px">🔗</div>
+      <div style="font-weight:600;font-size:.84rem;color:#0f172a">Dify / LangChain</div>
+      <div style="font-size:.72rem;color:#64748b;line-height:1.4;margin-top:4px">LLM应用编排<br>Workflow + Chatflow双模式</div>
+    </div>
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin-top:4px;padding:14px;text-align:center">
+      <div style="font-size:1.6rem;margin-bottom:4px">📊</div>
+      <div style="font-weight:600;font-size:.84rem;color:#0f172a">SQL + Python</div>
+      <div style="font-size:.72rem;color:#64748b;line-height:1.4;margin-top:4px">数据分析双引擎<br>5张核心表+17个SQL模块</div>
+    </div>
+  </div>
+
+  <div class="step" style="margin-top:14px"><div class="step-num">1</div><div class="step-body"><div class="step-title">Vibe Coding：PM的前置验证能力</div><div class="step-text">3个个人项目全部用Cursor和Claude Code辅助构建。Vibe Coding不是"AI替你写代码"——是"PM可以用AI快速验证产品假设"。传统流程中，PM写PRD→设计师出图→开发实现→测试反馈，每个环节有信息损耗。Vibe Coding让PM可以<b>在写PRD之前就用可交互原型验证核心假设</b>——宠伴从idea到可交互原型仅用数天。</div></div></div>
+
+  <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Agent架构：从单Agent到Multi-Agent</div><div class="step-text">实践了从单Agent到Multi-Agent协作的演进。Agent架构选型的核心判断：Agent数量固定+输出需精确控制→MCP；Agent数量动态+需要灵活编排→LangChain。没有万能的方案，只有适配场景的选择。</div></div></div>
+
+  <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">端侧AI：隐私优先的技术选型</div><div class="step-text">宠伴选Tesseract.js本地OCR（83%用户拒云上传）、简历优化器选浏览器端文件解析、Prompt库全localStorage存储——三个项目的技术选型背后是同一个产品判断：<b>用户数据主权> AI能力上限</b>。在隐私敏感场景下，宁可牺牲10%的识别精度，也要保证数据不离开用户设备。</div></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <p>陈相豫 · AI产品经理 · 作品集</p>
+  <p style="margin-top:4px">📧 <a href="mailto:Chenxy012@outlook.com">Chenxy012@outlook.com</a> · 📞 18741557875 · 📍 深圳</p>
+  <p style="margin-top:4px;font-size:clamp(.64rem,.72vw,.68rem)">香港大学 · 中国发展研究硕士 / 北京大学 · 国际政治经济学</p>
+  <p style="margin-top:8px;font-size:clamp(.6rem,.68vw,.64rem)">本作品集用 Vibe Coding 构建 · 响应式设计适配全设备 · <a href="#top">↑ 返回顶部</a></p>
+</footer>
+
+</div><!-- /container -->
+
+<script>
+(function(){
+'use strict';
+var body = document.body;
+var progressBar = document.getElementById('progressBar');
+var topNav = document.getElementById('topNav');
+var toc = document.getElementById('toc');
+var tocToggle = document.getElementById('tocToggle');
+var mobileNav = document.getElementById('mobileNav');
+var drawerTrigger = document.getElementById('drawerTrigger');
+var drawerOverlay = document.getElementById('drawerOverlay');
+var drawerMenu = document.getElementById('drawerMenu');
+var drawerClose = document.getElementById('drawerClose');
+var speedBanner = document.getElementById('speedBanner');
+
+function updateProgress(){
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+  progressBar.style.width = pct + '%';
+}
+
+function updateTopNav(){
+  topNav.classList.toggle('visible', window.pageYOffset > 300);
+  body.classList.toggle('has-top-nav', window.pageYOffset > 300);
+}
+
+var headings = [];
+function collectHeadings(){
+  headings = [];
+  var hs = document.querySelectorAll('.scroll-margin[id]');
+  for(var i=0;i<hs.length;i++){ headings.push({el:hs[i], id:hs[i].id}); }
+}
+function updateActive(){
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var activeId = '';
+  for(var i=0;i<headings.length;i++){
+    if(headings[i].el.getBoundingClientRect().top <= 150){ activeId = headings[i].id; }
+  }
+  var links = document.querySelectorAll('.toc-link, .top-nav-link, .drawer-link');
+  for(var j=0;j<links.length;j++){
+    var href = links[j].getAttribute('href');
+    links[j].classList.toggle('active', href === '#' + activeId);
+  }
+}
+
+var tocCollapsed = false;
+function updateTocCollapsed(){
+  toc.classList.toggle('collapsed', tocCollapsed);
+  tocToggle.textContent = tocCollapsed ? '+' : '−';
+  tocToggle.setAttribute('aria-label', tocCollapsed ? '展开目录' : '折叠目录');
+}
+tocToggle.addEventListener('click', function(){
+  tocCollapsed = !tocCollapsed;
+  updateTocCollapsed();
+  try{ localStorage.setItem('toc-collapsed', tocCollapsed ? '1' : '0'); }catch(e){}
+});
+
+function updateMobileNav(){
+  mobileNav.style.display = window.innerWidth <= 820 ? 'block' : 'none';
+}
+updateMobileNav();
+
+function openDrawer(){
+  drawerMenu.classList.add('active');
+  drawerOverlay.classList.add('active');
+  body.style.overflow = 'hidden';
+}
+function closeDrawer(){
+  drawerMenu.classList.remove('active');
+  drawerOverlay.classList.remove('active');
+  body.style.overflow = '';
+}
+drawerTrigger.addEventListener('click', openDrawer);
+drawerClose.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
+var drawerLinks = drawerMenu.querySelectorAll('.drawer-link');
+for(var k=0;k<drawerLinks.length;k++){ drawerLinks[k].addEventListener('click', closeDrawer); }
+
+var speedActive = false;
+window.toggleSpeed = function(){
+  speedActive = !speedActive;
+  body.classList.toggle('speed-active', speedActive);
+  speedBanner.style.display = speedActive ? 'flex' : 'none';
+  document.getElementById('speedBtn').textContent = speedActive ? '🐢 退出快速浏览' : '⚡ 快速浏览模式';
+  if(speedActive){
+    var details = document.querySelectorAll('details');
+    for(var d=0;d<details.length;d++){ details[d].setAttribute('open',''); }
+  } else {
+    var details2 = document.querySelectorAll('details');
+    for(var e=0;e<details2.length;e++){ details2[e].removeAttribute('open'); }
+  }
+  try{ localStorage.setItem('speed-mode', speedActive ? '1' : '0'); }catch(e){}
+};
+
+var animOff = false;
+window.toggleAnim = function(){
+  animOff = !animOff;
+  body.classList.toggle('anim-off', animOff);
+  body.classList.toggle('anim-ready', !animOff);
+  document.getElementById('animBtn').textContent = animOff ? '🎬 开启动画' : '🎬 关闭动画';
+  try{ localStorage.setItem('anim-off', animOff ? '1' : '0'); }catch(e){}
+};
+
+function handleScrollAnimations(){
+  if(animOff) return;
+  var cards = document.querySelectorAll('.card, .section-title, .divider, .comp-matrix');
+  for(var i=0;i<cards.length;i++){
+    if(cards[i].getBoundingClientRect().top < window.innerHeight * 0.88){ cards[i].classList.add('in-view'); }
+  }
+}
+
+function init(){
+  try{
+    if(localStorage.getItem('toc-collapsed')==='1'){ tocCollapsed=true; updateTocCollapsed(); }
+    if(localStorage.getItem('speed-mode')==='1'){ speedActive=true; body.classList.add('speed-active'); speedBanner.style.display='flex'; document.getElementById('speedBtn').textContent='🐢 退出快速浏览'; var dds=document.querySelectorAll('details'); for(var d=0;d<dds.length;d++){dds[d].setAttribute('open','');} }
+    if(localStorage.getItem('anim-off')==='1'){ animOff=true; body.classList.add('anim-off'); document.getElementById('animBtn').textContent='🎬 开启动画'; }
+  }catch(e){}
+  collectHeadings();
+  if(!animOff){ body.classList.add('anim-ready'); }
+  updateProgress();
+  updateTopNav();
+  updateActive();
+  handleScrollAnimations();
+}
+
+var ticking = false;
+function onScroll(){
+  if(!ticking){
+    requestAnimationFrame(function(){
+      updateProgress();
+      updateTopNav();
+      updateActive();
+      handleScrollAnimations();
+      ticking = false;
+    });
+    ticking = true;
+  }
+}
+
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('resize', function(){ updateMobileNav(); collectHeadings(); });
+document.addEventListener('DOMContentLoaded', init);
+if(document.readyState !== 'loading'){ init(); }
+})();
+</script>
+
+</body>
+</html>
+
